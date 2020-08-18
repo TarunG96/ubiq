@@ -23,12 +23,26 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-  SecurityClient::Voltron.new(
+  # Initialize the Client
+
+  client = SecurityClient::Voltron.new(
     access_key_id: 'Your access key',
     secret_signing_key: 'Your secret signing key',
     secret_crypto_access_key: 'Your secret crypto access key',
     host: 'Your host'
   )
+
+  # Piecewise Encryption
+  encrypted_result = client.encrypt(
+    uses: 'Key Uses',
+    data: 'Data to be encrypted'
+  )
+
+  # Piecewise Decryption
+  original_data = client.decrypt(
+    data: 'Encrypted Data'
+  )    
+
 ```
 
 ## Development
