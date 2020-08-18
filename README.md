@@ -24,7 +24,6 @@ Or install it yourself as:
 
 ```ruby
   # Initialize the Client
-
   client = SecurityClient::Voltron.new(
     access_key_id: 'Your access key',
     secret_signing_key: 'Your secret signing key',
@@ -32,16 +31,56 @@ Or install it yourself as:
     host: 'Your host'
   )
 
-  # Piecewise Encryption
+  # Simple Encryption
   encrypted_result = client.encrypt(
     uses: 'Key Uses',
     data: 'Data to be encrypted'
   )
 
-  # Piecewise Decryption
+  # Simple Decryption
   original_data = client.decrypt(
     data: 'Encrypted Data'
-  )    
+  )
+
+  # Piecewise Encryption
+    # Get your credentials ready
+    credentials = OpenStruct.new(
+      access_key_id: 'Your access key',
+      secret_signing_key: 'Your secret signing key',
+      secret_crypto_access_key: 'Your secret crypto access key',
+      host: 'Your host'
+    )
+
+    # Build the encryption object
+    enc = SecurityClient::Encryption.new(credentials, uses)
+    # Begin the encryption
+    enc.begin()
+    # Update the cipher with the raw data, can be supplied directly or in chunks
+    enc.update(data)
+    # End the encryption
+    enc.end()
+    # Reset the encryption object to initial state and cleanup the memory in use
+    enc.close()
+
+  # Piecewise Encryption
+    # Get your credentials ready
+    credentials = OpenStruct.new(
+      access_key_id: 'Your access key',
+      secret_signing_key: 'Your secret signing key',
+      secret_crypto_access_key: 'Your secret crypto access key',
+      host: 'Your host'
+    )
+
+    # Build the encryption object
+    dec = SecurityClient::Decryption.new(credentials)
+    # Begin the encryption
+    dec.begin()
+    # Update the cipher with the raw data, can be supplied directly or in chunks
+    dec.update(data)
+    # End the encryption
+    dec.end()
+    # Reset the encryption object to initial state and cleanup the memory in use
+    dec.close()
 
 ```
 
