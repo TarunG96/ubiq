@@ -22,7 +22,14 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```ruby
+  SecurityClient::Voltron.new(
+    access_key_id: 'Your access key',
+    secret_signing_key: 'Your secret signing key',
+    secret_crypto_access_key: 'Your secret crypto access key',
+    host: 'Your host'
+  )
+```
 
 ## Development
 
