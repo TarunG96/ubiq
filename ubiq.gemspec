@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["vinay.ymca@gmail.com"]
 
   spec.summary       = %q{A basic gem testing}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/TarunG96/ubiq"
 
 
   # Specify which files should be added to the gem when it is released.

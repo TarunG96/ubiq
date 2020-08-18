@@ -1,6 +1,5 @@
 require "ubiq/version"
+require "ubiq/builder"
 
-module Ubiq
-  class Error < StandardError; end
-  # Your code goes here...
+module Ubiq  
 end
